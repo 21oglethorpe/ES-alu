@@ -58,7 +58,7 @@ process(clk)
 begin
     if rising_edge(clk) then
         if btn3 = '1' then
-            btn1 <= '0'; btn0 <= '0'; btn2 <= '0';
+            inpA <= "0000"; inpB <= "0000"; inpop <= "0000";
         else
             if btn2 = '1' then
                 inpop <= opcode;
