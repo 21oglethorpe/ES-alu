@@ -33,7 +33,6 @@ use IEEE.numeric_std.all;
 
 entity my_alu is
 port ( A, B, x : in std_logic_vector(3 downto 0);
-        clk : in std_logic;
         led : out std_logic_vector(3 downto 0));
 end my_alu;
 
@@ -42,7 +41,7 @@ begin
     process(x)
     begin 
     case (x) is
-        when "0000"   => led <= std_logic_vector(unsigned(A)+unsigned(B));
+        when "0000"  => led <= std_logic_vector(unsigned(A)+unsigned(B));
         when "0001"  => led <= std_logic_vector(unsigned(A)-unsigned(B));
         when "0011"  => led <= std_logic_vector(unsigned(A)+1);
         when "0100"  => led <= std_logic_vector(unsigned(A)-1);
