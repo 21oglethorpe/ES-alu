@@ -25,7 +25,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity alu_tester is
-port(swA, opcode, swB, btn: in std_logic_vector(3 downto 0);
+port(sw, btn: in std_logic_vector(3 downto 0);
     clk: in std_logic;
     led: out std_logic_vector(3 downto 0));
 end alu_tester;
@@ -61,13 +61,13 @@ begin
             inpA <= "0000"; inpB <= "0000"; inpop <= "0000";
         else
             if btn2 = '1' then
-                inpop <= opcode;
+                inpop <= sw;
             end if;
             if btn1 = '1' then
-                inpA <= swA;
+                inpA <= sw;
             end if;
             if btn0 = '1' then
-                inpB <= swB;
+                inpB <= sw;
             end if;
     
     
