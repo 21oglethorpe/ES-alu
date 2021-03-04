@@ -45,12 +45,14 @@ begin
     case (x) is
         when "0000"  => led <= std_logic_vector(unsigned(A)+unsigned(B));
         when "0001"  => led <= std_logic_vector(unsigned(A)-unsigned(B));
-        when "0011"  => led <= std_logic_vector(unsigned(A)+1);
-        when "0100"  => led <= std_logic_vector(unsigned(A)-1);
-        when "0101"  => led <= std_logic_vector(0-unsigned(A));
-        when "0110"  => if A > B then led <= "1111"; else led <= "0000"; end if;
-        when "0111"  => led <= std_logic_vector(unsigned(A) sll 1);
-        when "1000"  => led <= std_logic_vector(unsigned(A) srl 1);
+        when "0010"  => led <= std_logic_vector(unsigned(A)+1);
+        when "0011"  => led <= std_logic_vector(unsigned(A)-1);
+        when "0100"  => led <= std_logic_vector(0-unsigned(A));
+        when "0101"  => if A > B then led <= "0001"; else led <= "0000"; end if;
+        when "0110"  => led <= std_logic_vector(unsigned(A) sll 1);
+        when "0111"  => led <= std_logic_vector(unsigned(A) srl 1);
+        when "1000"  => led <= to_stdlogicvector(to_bitvector(std_logic_vector(A)) sra 1);
+
         when "1001"  => led <= NOT A;
         when "1010"  => led <= A and B;
         when "1011"  => led <= A or B;
